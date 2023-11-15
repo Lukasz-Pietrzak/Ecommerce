@@ -1,6 +1,7 @@
 #navbar{
     margin-top: 20px;
     margin-left: 90px;
+    z-index: 5;
 }
 
 
@@ -37,7 +38,7 @@
 }
 
 #Logout{
-    background-color: orangered;
+    background-color: crimson;
     padding: 15px;
     padding-left: 30px;
     padding-right: 30px;
@@ -55,4 +56,58 @@
 
 .pizza{
     width: 100px;
+}
+
+#top{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px; 
+}
+
+#top-main-text{
+    float: left;
+    font-size: 45px;
+    font-style: italic;
+    font-weight: 100;
+    margin-left: 150px;
+    font-weight: bold;
+    max-width: 700px; /* Set a maximum width for the text */
+    /* word-wrap: break-word;  */
+    /* position: absolute; */
+}
+
+#top-main-pizza{
+    width: 40%;
+    float: right;
+    /* animation: pizza_rotation 30s linear infinite; */
+    z-index: 1;
+}
+
+@keyframes pizza_rotation{
+    0%{
+        transform: rotate(0deg);
+    }
+    100%{
+        transform: rotate(360deg);
+    }
+}
+
+#perfect-moment{
+    color: crimson;
+}
+
+#order-now{
+    background-color: crimson;
+    padding: 15px;
+    padding-left: 30px;
+    padding-right: 30px;
+    border-radius: 30px;
+    color: white;
+    position: relative;
+    left: 25%;
+}
+
+#order-now:hover{
+    cursor: pointer;
 }

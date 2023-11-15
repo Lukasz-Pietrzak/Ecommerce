@@ -21,14 +21,18 @@
 <img class="nav-right" id="koszyk" src="images/koszyk.png">
         </div>
 
+        <div id="top">
+            <span id="top-main-text"> Savor the Flavor, Share the Joy: Our Pizza, <span id="perfect-moment">Your Perfect Moment! </span><br><br><span id="order-now">Order now!</span></span>
+            <img id="top-main-pizza" src="images/main_pizza.jpg" alt="pizza">
+        </div>
 
         <div id="main">
             <script>
                 // Number of spans you want to create
-                let numSpans = 6;
+                let numImage = 1;
         
                 // Loop to create spans dynamically
-                for (var i = 1; i <= numSpans; i++) {
+                for (var i = 1; i <= numImage; i++) {
                     var span = document.createElement('span'); // Create a new span element
                     span.id = 'image' + i; // Set the id attribute
                     document.body.appendChild(span); // Append the span to the body element
@@ -40,7 +44,7 @@
 
     <script type="module">
         import ImageGenerator from "./ImageGenerator.js"
-        const imageGenerator = new ImageGenerator('pizza', 'images/pizza', 'jpg');
+        const imageGenerator = new ImageGenerator(numImage,'pizza', 'images/pizza', 'jpg');
         imageGenerator.generateImage();
 
     </script>
