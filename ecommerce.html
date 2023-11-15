@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="ecommerce.css">
+</head>
+<body>
+
+    <div id="container">
+
+        <div id="navbar">
+            <span class="nav" id="Logo"> Pizza </span>
+<span class="nav" id="Home"> Home </span>
+<span class="nav" id="Menu"> Menu </span>
+<span class="nav" id="About"> About </span>
+<span class="nav" id="Contact"> Contact </span>
+<span class="nav-right" id="Hello"> Hello, name </span>
+<span class="nav-right" id="Logout"> Logout </span>
+<img class="nav-right" id="koszyk" src="images/koszyk.png">
+        </div>
+
+
+        <div id="main">
+            <script>
+                // Number of spans you want to create
+                let numSpans = 6;
+        
+                // Loop to create spans dynamically
+                for (var i = 1; i <= numSpans; i++) {
+                    var span = document.createElement('span'); // Create a new span element
+                    span.id = 'image' + i; // Set the id attribute
+                    document.body.appendChild(span); // Append the span to the body element
+                }
+            </script>
+        </div>
+
+    </div>    
+
+    <script type="module">
+        import ImageGenerator from "./ImageGenerator.js"
+        const imageGenerator = new ImageGenerator('pizza', 'images/pizza', 'jpg');
+        imageGenerator.generateImage();
+
+    </script>
+<!-- 
+<script type="module">
+
+
+</script> -->
+
+</body>
+</html>
