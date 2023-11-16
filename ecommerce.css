@@ -1,3 +1,7 @@
+body{
+    height: auto;
+}
+
 #navbar{
     margin-top: 20px;
     margin-left: 90px;
@@ -54,10 +58,6 @@
     transform: translateY(+50%);
 }
 
-.pizza{
-    width: 100px;
-}
-
 #top{
     display: flex;
     justify-content: space-between;
@@ -80,8 +80,9 @@
 #top-main-pizza{
     width: 40%;
     float: right;
-    /* animation: pizza_rotation 30s linear infinite; */
+    animation: pizza_rotation 80s linear infinite;
     z-index: 1;
+    margin-right: 50px;
 }
 
 @keyframes pizza_rotation{
@@ -110,4 +111,132 @@
 
 #order-now:hover{
     cursor: pointer;
+}
+
+#main {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+    text-align: center;
+    padding: 20px;
+}
+
+
+#main-text-div{
+text-align: center;
+}
+
+#main-text {
+    font-size: 45px;
+    font-style: italic;
+    font-weight: bold;
+    color: crimson;
+}
+
+.main-pizza-image {
+    width: 250px;
+ 
+}
+
+#box1, #box2, #box3{
+    width: 450px;
+    min-height: 500px;
+    height: auto;
+    background-color: #e8e8e8;
+    padding: 30px;
+    margin: auto; 
+    border-radius: 20px;
+}
+
+
+#pizza1, #pizza2, #pizza3{
+    font-size: 30px;
+    font-weight: bold;
+    font-style: italic;
+}
+
+.main-pizza-tekst{
+    font-size: 30px;
+    font-weight: bold;
+}
+
+.add-to-cart{
+    background-color: crimson;
+    padding: 15px;
+    padding-left: 60px;
+    padding-right: 60px;
+    border-radius: 30px;
+    color: white;
+    font-size: 25px;
+}
+
+.add-to-cart:hover{
+    cursor: pointer;
+}
+
+#div-main-pizza-description{
+    height: 100px;
+    overflow: hidden;
+}
+
+.main-pizza-description{
+    font-size: 20px;
+
+}
+
+#div-main-pizza-description:hover{
+    height: auto;
+}
+
+#div-main-pizza-description::before {
+    content: '... ';
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    background-color: white;
+}
+
+
+#bottom{
+    text-align: center;
+    width: 500px;
+    position: relative;
+    left: 50%;
+    transform: translate(-50%);
+}
+
+/* #bottom-container{
+    width: 400px;
+} */
+
+#Our-story{
+    font-size: 30px;
+    font-weight: bold;
+}
+
+#About-us{
+    color: crimson;
+    font-size: 50px;
+    font-style: italic;
+}
+
+#Bottom-text{
+    font-size: 20px;
+}
+
+#Contact{
+    text-align: center;
+}
+
+#Contact-us{
+    color: crimson;
+    font-size: 50px;
+    font-style: italic;
+}
+
+#Phone-number{
+    text-decoration: underline;
+    font-size: 40px;
+    font-weight: bold;
 }
