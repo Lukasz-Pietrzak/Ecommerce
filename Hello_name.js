@@ -31,12 +31,42 @@ addShowAllProductsText.addEventListener("click", function(){
     let addProductDiv = document.createElement('div');
     addProductDiv.id = "addProductDiv";
 
+
+let Product_image_text = document.createElement('span');
+Product_image_text.innerHTML = "Product image";
+Product_image_text.classList.add("addProductSpan");
+
+
+let Product_image_form = document.createElement('form');
+Product_image_form.action = "Save_data.php";
+Product_image_form.method = "POST";
+Product_image_form.enctype = "multipart/form-data";
+
+let Product_image_upload = document.createElement('input');
+Product_image_upload.setAttribute('name', 'productImageUpload'); // Nadanie identyfikatora polu przesyłania plików
+Product_image_upload.setAttribute("type", "file");
+
+
+// Ustawienie wartości atrybutu value
+
+
+
     let Product_name = document.createElement('span');
     Product_name.id = "addProductSpan";
     Product_name.innerHTML = "Product name";
     Product_name.classList.add("addProductSpan");
     let form = document.createElement('form');
+    // form.action = "Save_data.php";
+    // form.method = "POST";
     let input = document.createElement('input');
+
+
+ 
+    // submit.style.width = "300px";
+    
+    // Append the submit button to the document or a specific element
+    
+    input.name = "Product_name";
     createInputBar(input, "text");
 
 
@@ -45,6 +75,8 @@ addShowAllProductsText.addEventListener("click", function(){
     Description.innerHTML = "Description";
     Description.classList.add("addProductSpan");
     let form2 = document.createElement('form');
+    // form2.action = "Save_data.php";
+    // form2.method = "POST";
     let textarea = document.createElement('textarea');
 textarea.name = 'message'; // Określanie nazwy pola
 
@@ -63,12 +95,14 @@ textarea.style.fontSize = "20px";
     let form3 = document.createElement('form');
     let input3 = document.createElement('input');
     createInputBar(input3, "text");
+    Base_price.style.marginTop = "40px";
 
 
     let Sizes = document.createElement('span');
     Sizes.id = "Sizes";
     Sizes.innerHTML = "Sizes";
     Sizes.classList.add("addProductSpan");
+    Sizes.style.marginTop = "25px";
 
 
     function createAddItemSize(name, id){
@@ -90,27 +124,15 @@ textarea.style.fontSize = "20px";
     Extra_ingredients.id = "Extra_ingredients";
     Extra_ingredients.innerHTML = "Extra ingredients";
     Extra_ingredients.classList.add("addProductSpan");
+    Extra_ingredients.style.marginTop = "40px"
 
 
-    function SaveDesign(saveName, width, fontSize){
-        saveName.style.border = "1px solid black";
-        saveName.style.cursor = "pointer";
-        saveName.style.textAlign = "center";
-        saveName.style.position = "relative";
-        saveName.classList.add("addProductSpan");
-        saveName.style.width = width;
-        saveName.style.fontSize = fontSize;
-        saveName.style.left = "50%";
-        saveName.style.transform = "translateX(-50%)";
-    }
 
-
-    function CreateItemSize(formName, input1Name, input2Name, imageName, saveName, counterName, insertBeforeName){
+    function CreateItemSize(formName, input1Name, input2Name, imageName, counterName, insertBeforeName){
 
 
         // input2Name.style.visibility = "hidden";
 
-        saveName.style.visibility = "hidden";
         formName.style.height = "50px";
         input1Name.type = "text";
         input1Name.name = "input" + counterName;
@@ -137,16 +159,6 @@ textarea.style.fontSize = "20px";
         imageName.style.cursor = "pointer";
 
 
-
-        saveName.style.visibility = "visible";
-        saveName.innerHTML = "Save";
-        
-
-
-        SaveDesign(saveName, '55px', '18px');
-
-
-        // imageName.style.display = "flex";
         
 formName.style.display = "flex";
 formName.style.justifyContent = "center";
@@ -160,27 +172,25 @@ formName.style.alignItems = "center"; // Align items vertically in the center
 
     formName.appendChild(imageName);
 
-    addProductDiv.appendChild(saveName);
 
 
         addProductDiv.insertBefore(formName, insertBeforeName);
-        addProductDiv.insertBefore(saveName, insertBeforeName);
     
 
 
     }
 
 
-
+    var pizzaSizeInput;
     let counter = 4;
-    let Save = document.createElement("span");
     AddItemSize.addEventListener("click", function(){
         let form4 = document.createElement('form');
         let input4 = document.createElement('input');
+        pizzaSizeInput = input4;
         let image = document.createElement('img');
     
         let input5 = document.createElement('input');
-        CreateItemSize(form4, input4, input5, image, Save, counter, Extra_ingredients);
+        CreateItemSize(form4, input4, input5, image, counter, Extra_ingredients);
         console.log(counter);
         counter++;
 
@@ -188,9 +198,6 @@ formName.style.alignItems = "center"; // Align items vertically in the center
             console.log("dziala");
             counter--;
             form4.remove();
-            if (counter < 5){
-                Save.remove();
-            }
             
         });
 
@@ -201,7 +208,6 @@ formName.style.alignItems = "center"; // Align items vertically in the center
     createAddItemSize(AddItemSize2, "Add_Item_Size2");
 
 
-    let Save2 = document.createElement("span");
     AddItemSize2.addEventListener("click", function() {
         let form6 = document.createElement('form');
         let input6 = document.createElement('input');
@@ -209,22 +215,22 @@ formName.style.alignItems = "center"; // Align items vertically in the center
         let image2 = document.createElement('img');
         let input7 = document.createElement('input');
 
-        CreateItemSize(form6, input6, input7, image2, Save2, counter2, SaveProduct);
+        CreateItemSize(form6, input6, input7, image2, counter2, SaveProduct);
         counter2++;
 
         image2.addEventListener("click", function() {
             console.log("dziala");
             counter2--;
             form6.remove();
-            if (counter2 < 7){
-                Save2.remove();
-            }
             
         });
 
     });
 
     let SaveProduct = document.createElement('span');
+    // SaveProduct.type = "submit";
+    // SaveProduct.value = "Submit";
+    // SaveProduct.name = "submit";
     SaveProduct.innerHTML = "Save your product";
     // SaveDesign(SaveProduct, "30px", "18px");
     SaveProduct.style.height = "45px";
@@ -244,10 +250,27 @@ formName.style.alignItems = "center"; // Align items vertically in the center
     SaveProduct.style.display = "flex";
     SaveProduct.style.justifyContent = "center";
     SaveProduct.style.alignItems = "center";
+
+
+    SaveProduct.addEventListener("click", function() {
+        // Pobierz wartości z pól input i textarea
+        var productName = input.value;
+        var message = textarea.value;
+        var pizzaSize = pizzaSizeInput.value;
+        // Przekieruj użytkownika do pliku PHP z parametrami productName i productName2
+        window.location.href = "Save_data.php?productName=" + encodeURIComponent(productName) + "&message=" + encodeURIComponent(message) + "&pizzaSize=" + encodeURIComponent(pizzaSize);
+        // location.reload();
+
+    });
     
+    addProductDiv.appendChild(Product_image_text);
+    addProductDiv.appendChild(Product_image_form);
+    Product_image_form.appendChild(Product_image_upload);
     addProductDiv.appendChild(Product_name);
     addProductDiv.appendChild(form);
     form.appendChild(input);
+
+    // addProductDiv.appendChild(SaveProduct);
 
     addProductDiv.appendChild(Description);
     addProductDiv.appendChild(form2);
@@ -260,15 +283,12 @@ formName.style.alignItems = "center"; // Align items vertically in the center
     addProductDiv.appendChild(Sizes);
     addProductDiv.appendChild(AddItemSize);
 
-
-
-    addProductDiv.appendChild(Save);
-
     addProductDiv.appendChild(Extra_ingredients);
     addProductDiv.appendChild(AddItemSize2);
-    addProductDiv.appendChild(Save2);
-
+    // form.appendChild(SaveProduct);
+    // form2.appendChild(SaveProduct);
     addProductDiv.appendChild(SaveProduct);
+    // addProductDiv.appendChild(SaveProduct);
     document.body.appendChild(addProductDiv);
 });
 });
